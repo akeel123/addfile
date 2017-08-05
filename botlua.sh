@@ -1,3 +1,25 @@
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+ print(BOT LUA) 
+
+ 
  sudo apt-get update
  sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev libjansson* libpython-dev make unzip git redis-server g++ -y --force-yes
  wget http://luarocks.org/releases/luarocks-2.2.2.tar.gz

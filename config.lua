@@ -1,13 +1,11 @@
 return {
-	bot_api_key = '358721093:AAGf-M-VGpaw1fic1NE3hVe2ON48Hvq93lQ', -- هنا حط التوكن
+	bot_api_key = '', -- هنا حط التوكن
 	
 	admin = 358231262, -- هنا ايدي المطور الاساسي
 	
-  ffpro = 'botlua', -- هنا معرف قناتك بدون @ 1
-
 	botLUA = {	
-		'botlua1.lua',									
-		'botlua2.lua',									
+		'keko.lua',									
+		'keko2.lua',									
 	},
 	
 	

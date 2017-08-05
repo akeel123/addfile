@@ -161,7 +161,7 @@ local function collect_stats(msg)
 		client:incrby('chat:'..msg.chat.id..':totalmsgs', 1) 
 	end
 	if msg.text then
-		client:sadd('mlvvvu', msg.chat.id)
+		client:sadd('keko', msg.chat.id)
 	end
 end
 

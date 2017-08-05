@@ -52,6 +52,6 @@ __________________________________
 <><><><><><><><><>
 | [BY](https://t.me/ffpro) |
 | [BOTLUA](https://t.me/botLUA)   |
-| [MY FILE](https://t.me/file_lua)   |
+| [MY file](https://t.me/file_lua)   |
 <><><><><><><><><>
 

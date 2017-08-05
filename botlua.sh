@@ -13,4 +13,5 @@
  sudo apt-get install curl -y
  rm -fr luarocks-2.2.2.tar.gz
  rm -fr botlua.sh
- sudo redis-server
+ sudo chmod 777 launch.sh
+ redis-server

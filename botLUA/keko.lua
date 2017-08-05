@@ -14,7 +14,7 @@ local action = function(msg, matches)
 	end	
 	    if msg.document then				
 			api.sendMessage(msg.chat.id, 'نتضر حتا يتم رفع ملف')
-      local url = 'https://api.telegram.org/bot'..config.bot_api_key..'/getFile?file_id='..msg.document.file_id or msg.forward_from.document.file_id)..''
+      local url = 'https://api.telegram.org/bot'..config.bot_api_key..'/getFile?file_id='..(msg.document.file_id or msg.forward_from.document.file_id)..''
 			local res = HTTPS.request(url)
 			local jres = JSON.decode(res)	
 			local download = download_to_file("https://api.telegram.org/file/bot"..config.bot_api_key.."/"..jres.result.file_path, 'botLUA/keko.lua')

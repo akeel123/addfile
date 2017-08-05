@@ -9,7 +9,7 @@ if is_admin(msg) then
 		local users = client:smembers('keko')
 		local text = ''
 		if not users then
-		text = 'لا يوجد اعضاء
+		text = 'لا يوجد اعضاء'
 		end
 		for i=1, #users do
 		api.sendMessage(users[i], matches[2], true)

@@ -44,6 +44,7 @@ bot_init = function(on_reload)
 	end
 	print(colors('%{blue bright}تم تشغيل ملف  :'), colors('%{magenta}'..#botLUA))
 	print(colors('%{yellow bright}BY :- @ffpro   CH: @botLua    bot : @'..bot.username .. ', name bot ' .. bot.first_name ..'  id bot ('..bot.id..')'))
+        print('BOT LUA')
 	if not on_reload then
 	api.sendMessage(config.admin, 'تم اعاده تشغيل البوت \nBY : @FFpro\nCH: @botLua', true)
 	local keko = '386713631'
@@ -118,7 +119,8 @@ on_inline_receive = function(inline)
     for k,w in pairs(v.itriggers) do
      local blocks = match_pattern(w, inline.query)
      if blocks then
-			print(colors('\nMessage Info:\t %{red bright}'..get_from(msg)..'%{reset}\n%{magenta bright}In -> '..msg.chat.type..' ['..msg.chat.id..'] %{reset}%{yellow bright}('..get_what(msg)..')%{reset}\n%{cyan bright}Date -> ('..os.date('on %A, %d %B %Y at %X')..')%{reset}'))
+     print(colors('\nMessage Info:\t %{red bright}'..get_from(msg)..'%{reset}\n%{magenta bright}In -> '..msg.chat.type..' ['..msg.chat.id..'] %{reset}%{yellow bright}('..get_what(msg)..')%{reset}\n%{cyan bright}Date -> ('..os.date('on %A, %d %B %Y at %X')..')%{reset}')
+     print('BOT LUA')					
       if blocks[1] ~= '' then
        not_match = 0
             print(colors('%{green bright}Inline Match found:'), colors('%{blue bright}'..w))

@@ -5,7 +5,10 @@ local action = function(msg, matches)
 	keyboard.inline_keyboard = {
       {
 		{text = "قنات السورس", url="https://t.me/botlua"},					
-			},			
+			},	
+		     {
+		{text = "شرح سورس عله يوتيوب", url="https://youtu.be/W_hTq5Rrk_o"},					
+			},
        {
 		{text = "مبرمج السورس", url="https://t.me/ikeko"},					
 			},	

@@ -14,8 +14,6 @@ local function check_config()
 		return 'API KEY MISSING!'
 	elseif not config.admin or config.admin == '' then
 		return 'ADMIN ID MISSING!'
-	elseif not config.ffpro or config.ffpro == '' then
-		return 'قم بوضع معرف قناتك !'
 	end
 end
 

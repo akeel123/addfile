@@ -120,7 +120,7 @@ on_inline_receive = function(inline)
      local blocks = match_pattern(w, inline.query)
      if blocks then
      print(colors('\nMessage Info:\t %{red bright}'..get_from(msg)..'%{reset}\n%{magenta bright}In -> '..msg.chat.type..' ['..msg.chat.id..'] %{reset}%{yellow bright}('..get_what(msg)..')%{reset}\n%{cyan bright}Date -> ('..os.date('on %A, %d %B %Y at %X')..')%{reset}')
-     print('BOT LUA')					
+					
       if blocks[1] ~= '' then
        not_match = 0
             print(colors('%{green bright}Inline Match found:'), colors('%{blue bright}'..w))

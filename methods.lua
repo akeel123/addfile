@@ -168,7 +168,25 @@ local function curlRequest(curl_command)
 	io.popen(curl_command)
 
 end
+local function sendVideo(chat_id, video, reply_to_message_id, keyboard)
 
+	local url = BASE_URL .. '/sendVideo'
+
+	local curl_command = 'curl "' .. url .. '" -F "chat_id=' .. chat_id .. '" -F "video=@' .. video .. '"'
+
+	if reply_to_message_id then
+		curl_command = curl_command .. ' -F "reply_to_message_id=' .. reply_to_message_id .. '"'
+	end
+
+	if duration then
+		curl_command = curl_command .. ' -F "duration=' .. duration .. '"'
+	end
+  if keyboard then
+	curl_command = curl_command..'&reply_markup='..JSON.encode(keyboard)
+  end
+	return curlRequest(curl_command)
+
+end
 local function sendPhoto(chat_id, photo, caption, reply_to_message_id)
 
 	local url = BASE_URL .. '/sendPhoto'
@@ -319,7 +337,7 @@ return {
 	sendKeyboard = sendKeyboard,
 	forwardMessage = forwardMessage,
 	sendChatAction = sendChatAction,
-	
+	sendVideo = sendVideo,
 	editMessageText = editMessageText,
 	
 	answerCallbackQuery = answerCallbackQuery,

@@ -1,3 +1,3 @@
 return {
-	bot_api_key = ':AAGOxiqiznfzmXbe8LJ716T0O9Oalyqn2Rw', 
+	bot_api_key = '386713631:AAFsJBpv_t2cuHmuS35CUG5uuCseOLdYzp8', 
 }

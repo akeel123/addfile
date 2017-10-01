@@ -113,7 +113,7 @@ on_inline_receive = function(inline)
   return
  end
  
-      for i,v in pairs(botLua) do
+      for i,v in pairs(botLUA) do
    if v.iaction then
    if v.itriggers then
     for k,w in pairs(v.itriggers) do

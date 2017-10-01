@@ -64,7 +64,22 @@ local function getUpdates(offset)
 	return sendRequest(url)
 
 end
+function sendkeko(inline_query_id, query_id , title , description , text , keyboard)
+  local results = {{}}
+         results[1].id = query_id
+         results[1].type = 'article'
+         results[1].description = description
+         results[1].title = title
+         results[1].message_text = text
+  local url = 'https://api.telegram.org/bot' .. config.bot_api_key
 
+  urlk = url .. '/answerInlineQuery?inline_query_id=' .. inline_query_id ..'&results=' .. URL.escape(json:encode(results))..'&parse_mode=Markdown&cache_time=' .. 1
+  if keyboard then
+   results[1].reply_markup = keyboard
+  urlk = url .. '/answerInlineQuery?inline_query_id=' .. inline_query_id ..'&results=' .. URL.escape(json:encode(results))..'&parse_mode=Markdown&cache_time=' .. 1
+  end
+    HTTPS.request(urlk)
+  end
 local function sendMessage(chat_id, text, use_markdown, disable_web_page_preview, reply_to_message_id, send_sound)
 	--print(text)
 	local url = BASE_URL .. '/sendMessage?chat_id=' .. chat_id .. '&text=' .. URL.escape(text)
@@ -328,6 +343,7 @@ return {
 	sendMessage = sendMessage,
 	sendRequest = sendRequest,
 	sendVoice = sendVoice,
+    sendkeko = sendkeko,
 	sendAudio = sendAudio,
 	sendSticker = sendSticker,
 	sendDocument = sendDocument,

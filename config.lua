@@ -1,29 +1,29 @@
-return {
-	bot_api_key = '', -- هنا حط التوكن
+العودة {
+	bot_api_key =  ' ' ، - 673450405:AAGYWh_OnnRtbBPQUD243O3ccL0cxn8Y1Mw
 	
-	admin = 358231262, -- هنا ايدي المطور الاساسي
+	admin =  158343431 ، - هنا ايدي المطور الاساسي
 	
 	botLUA = {	
-		'keko2.lua',									
-		'keko.lua',									
-	},
+		" keko2.lua " ،									
+		" keko.lua " ،									
+	}،
 	
 	
 	api_errors = {
-		[101] = 'Not enough rights to kick participant', --SUPERGROUP: bot is not admin
-		[102] = 'USER_ADMIN_INVALID', --SUPERGROUP: trying to kick an admin
-		[103] = 'method is available for supergroup chats only', --NORMAL: trying to unban
-		[104] = 'Only creator of the group can kick admins from the group', --NORMAL: trying to kick an admin
-		[105] = 'Need to be inviter of the user to kick it from the group', --NORMAL: bot is not an admin or everyone is an admin
-		[106] = 'USER_NOT_PARTICIPANT', --NORMAL: trying to kick an user that is not in the group
-		[110] = 'PEER_ID_INVALID', --user never started the bot
-		[111] = 'message is not modified', --the edit message method hasn't modified the message
-		[112] = 'Can\'t parse message text: Can\'t find end of the entity starting at byte offset %d+', --the markdown is wrong and breaks the delivery
-		[120] = 'Can\'t parse reply keyboard markup JSON object', --keyboard table invalid
-		[121] = 'Field \\\"inline_keyboard\\\" of the InlineKeyboardMarkup should be an Array of Arrays', --inline keyboard is not an array of array
-		[122] = 'Can\'t parse inline keyboard button: InlineKeyboardButton should be an Object',
-		[123] = 'Bad Request: Object expected as reply markup',
-		[403] = 'Bot was blocked by the user', --user blocked the bot
-		[429] = 'Too many requests: retry later', --the bot is hitting api limits
+		[ 101 ] =  ' ليست هناك حقوق كافية لركل المشاركين ' ، - SUPERGROUP: bot ليس مشرفًا
+		[ 102 ] =  ' USER_ADMIN_INVALID ' ، - SUPERGROUP: تحاول طرد مسؤول
+		[ 103 ] =  ' الطريقة متاحة للدردشة الجماعية فقط ' ، - عادي: محاولة إلغاء الحظر
+		[ 104 ] =  'يمكن لمنشئ المجموعة فقط طرد المسؤولين من المجموعة ' ، - NORMAL: محاولة طرد مسؤول
+		[ 105 ] =  ' يجب أن تكون داعيًا للمستخدم لركله من المجموعة ' ، - NORMAL: bot ليس مشرفًا أو يكون الجميع مشرفًا
+		[ 106 ] =  ' USER_NOT_PARTICIPANT ' ، - NORMAL: تحاول ركل مستخدم غير موجود في المجموعة
+		[ 110 ] =  ' PEER_ID_INVALID ' ، - لم يبدأ المستخدم البوت مطلقًا
+		[ 111 ] =  ' لم يتم تعديل الرسالة ' ، - لم تعدل طريقة تحرير الرسالة الرسالة
+		[ 112 ] =  ' يمكن \' ر تحليل نص الرسالة: يمكن \ ' ر العثور نهاية للكيان ابتداء من الساعة الإزاحة٪ د + " ، - وتخفيض السعر هو الخطأ ويكسر تسليم
+		[ 120 ] =  ' يمكن \' ر تحليل لوحة المفاتيح الرد العلامات كائن JSON " ، - الجدول لوحة المفاتيح غير صالحة
+		[ 121 ] =  ' الميدان \\\ " inline_keyboard \\\" من InlineKeyboardMarkup يجب أن يكون صفيف المصفوفات " ، - لوحة المفاتيح المضمنة ليس مجموعة من مجموعة
+		[ 122 ] =  ' يمكن \' ر تحليل زر لوحة المفاتيح مضمنة: InlineKeyboardButton يجب أن يكون كائن " ،
+		[ 123 ] =  ' طلب سيئ: كائن متوقع كرد على الرد ' ،
+		[ 403 ] =  ' تم حظر بوت من قبل المستخدم ' ، - حظر المستخدم البوت
+		[ 429 ] =  ' طلبات كثيرة جدا: إعادة المحاولة في وقت لاحق " ، - بوت هو ضرب حدود المعهد
 	}
 }
